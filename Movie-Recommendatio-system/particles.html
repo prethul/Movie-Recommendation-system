@@ -1,0 +1,45 @@
+<div class="particles"></div>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    background: transparent;
+}
+
+.particle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+</style>
+
+<script>
+const container = document.querySelector('.particles');
+
+for (let i = 0; i < 35; i++) {
+    const p = document.createElement('div');
+
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (Math.random() * 6 + 5) + 's';
+    p.style.animationDelay = Math.random() * 5 + 's';
+    p.style.opacity = Math.random();
+
+    container.appendChild(p);
+}
+</script>
